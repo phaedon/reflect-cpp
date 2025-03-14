@@ -2,6 +2,7 @@ cc_library(
     name = "reflect-cpp",
     srcs = glob([
         "src/rfl/generic/*.cpp",
+        "src/rfl/json/**/*.cpp",
         "src/rfl/parsing/**/*.cpp",
     ]) + ["src/yyjson.c"],
     hdrs = glob([
@@ -9,6 +10,7 @@ cc_library(
         "include/rfl/*.h*",
         "include/rfl/generic/*.h*",
         "include/rfl/internal/**/*.h*",
+        "include/rfl/json/**/*.h*",
         "include/rfl/parsing/**/*.h*",
         "include/rfl/thirdparty/*.h*",
     ]),
