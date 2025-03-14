@@ -72,6 +72,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+bazel-*
 build/
 develop-eggs/
 dist/
@@ -90,3 +91,4 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+MODULE.bazel.lock
