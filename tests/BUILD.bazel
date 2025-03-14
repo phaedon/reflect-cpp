@@ -11,14 +11,27 @@ cc_test(
 )
 
 cc_test(
+    name = "cbor_tests",
+    srcs = glob([
+        "cbor/*.cpp",
+        "cbor/*.hpp",
+    ]),
+    deps = [
+        "//:cbor",
+        "//:reflect-cpp",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
     name = "flatbuffers_tests",
     srcs = glob([
         "flexbuffers/*.cpp",
         "flexbuffers/*.hpp",
     ]),
     deps = [
-        "//:reflect-cpp",
         "//:flatbuffers",
+        "//:reflect-cpp",
         "@googletest//:gtest_main",
     ],
 )

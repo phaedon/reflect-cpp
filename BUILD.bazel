@@ -28,6 +28,22 @@ cc_library(
 )
 
 cc_library(
+    name = "cbor",
+    srcs = glob([
+        "src/rfl/cbor/**/*.cpp",
+    ]),
+    hdrs = glob([
+        "include/rfl/cbor/*.h*",
+    ]),
+    visibility = ["//visibility:public"],
+    deps = [
+        ":reflect-cpp",
+        "@jsoncons",
+    ],
+)
+
+
+cc_library(
     name = "flatbuffers",
     srcs = glob([
         "src/rfl/flexbuf/**/*.cpp",
