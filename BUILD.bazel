@@ -1,15 +1,20 @@
 cc_library(
     name = "reflect-cpp",
     srcs = glob([
-        "src/rfl/generic/*.cpp",
         "src/rfl/json/**/*.cpp",
-        "src/rfl/parsing/**/*.cpp",
-    ]) + ["src/yyjson.c"],
+    ]) + [
+        "src/reflectcpp.cpp",
+        "src/yyjson.c",
+    ],
     hdrs = glob([
+        "src/rfl/*.cpp",
+        "src/rfl/generic/*.cpp",
         "include/*.h*",
         "include/rfl/*.h*",
         "include/rfl/generic/*.h*",
         "include/rfl/internal/**/*.h*",
+        "src/rfl/internal/**/*.cpp",
+        "src/rfl/parsing/**/*.cpp",
         "include/rfl/io/**/*.h*",
         "include/rfl/json/**/*.h*",
         "include/rfl/parsing/**/*.h*",
@@ -20,4 +25,49 @@ cc_library(
         "include/rfl/thirdparty",
     ],
     visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "flatbuffers",
+    srcs = glob([
+        "src/rfl/flexbuf/**/*.cpp",
+    ]),
+    hdrs = glob([
+        "include/rfl/flexbuf/*.h*",
+    ]),
+    visibility = ["//visibility:public"],
+    deps = [
+        ":reflect-cpp",
+        "@flatbuffers",
+    ],
+)
+
+cc_library(
+    name = "xml",
+    srcs = glob([
+        "src/rfl/xml/**/*.cpp",
+    ]),
+    hdrs = glob([
+        "include/rfl/xml/**/*.h*",
+    ]),
+    visibility = ["//visibility:public"],
+    deps = [
+        ":reflect-cpp",
+        "@pugixml",
+    ],
+)
+
+cc_library(
+    name = "yaml",
+    srcs = glob([
+        "src/rfl/yaml/**/*.cpp",
+    ]),
+    hdrs = glob([
+        "include/rfl/yaml/**/*.h*",
+    ]),
+    visibility = ["//visibility:public"],
+    deps = [
+        ":reflect-cpp",
+        "@yaml-cpp",
+    ],
 )

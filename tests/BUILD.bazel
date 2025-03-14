@@ -1,0 +1,62 @@
+cc_test(
+    name = "generic_tests",
+    srcs = glob([
+        "generic/*.cpp",
+        "generic/*.hpp",
+    ]),
+    deps = [
+        "//:reflect-cpp",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "flatbuffers_tests",
+    srcs = glob([
+        "flexbuffers/*.cpp",
+        "flexbuffers/*.hpp",
+    ]),
+    deps = [
+        "//:reflect-cpp",
+        "//:flatbuffers",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "json_tests",
+    srcs = glob([
+        "json/*.cpp",
+        "json/*.hpp",
+    ]),
+    deps = [
+        "//:reflect-cpp",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "xml_tests",
+    srcs = glob([
+        "xml/*.cpp",
+        "xml/*.hpp",
+    ]),
+    deps = [
+        "//:reflect-cpp",
+        "//:xml",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "yaml_tests",
+    srcs = glob([
+        "yaml/*.cpp",
+        "yaml/*.hpp",
+    ]),
+    deps = [
+        "//:reflect-cpp",
+        "//:yaml",
+        "@googletest//:gtest_main",
+    ],
+)
